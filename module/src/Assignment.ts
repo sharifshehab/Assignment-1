@@ -15,6 +15,14 @@ function filterByRating(items: { title: string; rating: number }[]): { title: st
 
 
 
+function concatenateArrays<T>(...arrays: T[][]): T[] {
+    let result = [];
+    for (const arr of arrays) {
+        result.push(...arr)
+    }
+    return result;
+}
+
 
 class Vehicle {
     private _make: string;
@@ -29,7 +37,6 @@ class Vehicle {
         return `Make: ${this._make}, Year: ${this._year}`;
     }
 }
-
 class Car extends Vehicle {
 
     private _model: string;
@@ -46,16 +53,12 @@ class Car extends Vehicle {
 
 
 
-
 function processValue(value: string | number): number{
     if (typeof value === "string") {
         return value.length;
     }
     return value * 2;
 }
-
-
-
 
 
 interface Product {
@@ -90,10 +93,6 @@ function getMostExpensiveProduct(products: Product[]): Product | null {
 
 
 
-
-
-
-
 enum Day {
   Monday,
   Tuesday,
@@ -108,17 +107,19 @@ function getDayType(day: Day) {
     if (day > 5) {
         return "Weekend";
     }
-        return "Weekday";
+    return "Weekday";
 }
 
 
 
 async function squareAsync(n: number): Promise<number>{
     return new Promise<number>((resolve, reject) => {
+   
+        setTimeout(() => resolve(n ** 2), 1000);
+    
         if (n < 0) {
             reject("Negative number not allowed");
         }
-        setTimeout(() =>  resolve(n ** 2),1000);
     })
 }
 
