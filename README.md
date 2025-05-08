@@ -43,7 +43,7 @@ const newProduct: DigitalProduct = {
 
 Union(|) and Intersection (&) in TypeScript are used for types. In JavaScript, we used something similar to Ternary Operator. But  Union(|) and Intersection are type operators, and Ternary Operators are logical conditions.
 
-- **Union(|): We use Union, it means that the value can be several types.**
+- **Union(|): When we use Union, it means that the value can be several types.**
 - **Intersection(&&): We use Intersection, to combine multiple "types" or to add an extra type.**
 
 ## Union Example:
@@ -51,5 +51,21 @@ Union(|) and Intersection (&) in TypeScript are used for types. In JavaScript, w
 type FrontendDeveloper = "UX Developer" | "React Developer"
 
 const newDeveloper: FrontendDeveloper = "UX Developer" or "React Developer" (Any one of these options can be used here)
+```
+
+## Intersection Example:
+```bash
+type FrontEndDeveloper = {
+    name: string;
+    designation: string;
+}
+
+type NewDeveloper = FrontEndDeveloper & { company: string }
+
+const intern: NewDeveloper = {
+    name: 'David Low',
+    designation: 'React Developer',
+    company: 'AHOM'
+}
 ```
 
