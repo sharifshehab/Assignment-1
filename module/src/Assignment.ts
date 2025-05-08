@@ -104,7 +104,7 @@ enum Day {
 }
 
 function getDayType(day: Day) {
-    if (day > 5) {
+    if (day >= 5) {
         return "Weekend";
     }
     return "Weekday";
